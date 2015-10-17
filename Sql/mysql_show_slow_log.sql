@@ -1,0 +1,1 @@
+select start_time,user_host,query_time,lock_time,rows_examined,rows_sent,substr(sql_text,1,100) as sqll from mysql.slow_log  where start_time > date_sub(now(), interval @1 minute)  order by start_time ;

@@ -1,0 +1,1 @@
+SELECT trunc(operation_start_timestamp,'SS') as time,node_name,operation_name,plan_type,table_schema,table_name,projection_name,session_id,ros_count,(total_ros_used_bytes/1024)::number(30,2) as KB FROM tuple_mover_operations where operation_status = 'Abort' order by operation_start_timestamp desc ;

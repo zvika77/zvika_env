@@ -1,0 +1,101 @@
+\echo <h1> Nodes Status ...</h1>
+
+select case when critical_nodes.node_name is not null then 'X' else null end  as Critical,nodes.*
+from v_catalog.nodes left outer join v_monitor.critical_nodes on  (nodes.node_name = critical_nodes.node_name);
+
+
+\echo <h1>Errors ....</h1>
+\echo <h2>Today ....</h2>
+
+select to_char(trunc(time),'dd/mm/yy') as time,max(sysdate-time) as time_diff,
+function_name,substr(message,1,50) as message ,count(*) as count ,count(distinct node_name) as dist_nodes
+,case when count(distinct user_name)=1 then max(user_name) else to_char(count(distinct user_name)) end as distinct_user
+,to_char(min(time),'dd/mm/yy hh24:mi:ss') as min_time,to_char(max(time),'dd/mm/yy hh24:mi:ss') as max_time
+from dc_errors
+where time >  trunc(sysdate)
+group by trunc(time),error_level,function_name,substr(message,1,50)
+order by trunc(time) desc,count(*) desc ;
+
+
+\echo <h2>Yesterday ....</h2>
+
+select to_char(trunc(time),'dd/mm/yy') as time,max(sysdate-time) as time_diff,
+function_name,substr(message,1,50) as message ,count(*) as count ,count(distinct node_name) as dist_nodes
+,case when count(distinct user_name)=1 then max(user_name) else to_char(count(distinct user_name)) end as distinct_user
+,to_char(min(time),'dd/mm/yy hh24:mi:ss') as min_time,to_char(max(time),'dd/mm/yy hh24:mi:ss') as max_time
+from dc_errors
+where time >  trunc(sysdate)-1 and time < trunc(sysdate)
+group by trunc(time),error_level,function_name,substr(message,1,50)
+order by trunc(time) desc,count(*) desc ;
+
+\echo <h1>Checking Ros containers (order by ros count)....</h1>
+
+select node_name,anchor_table_schema,anchor_table_name,projection_name,row_count,used_bytes/1024/1024 as used_MB,wos_used_bytes/1024/1024 wos_used_MB,ros_used_bytes/1024/1024 ros_used_MB,ros_count
+from  v_monitor.projection_storage
+where anchor_table_schema != 'forecasting'
+order by ros_count desc 
+limit 10;
+
+\echo <h1>Checking Deleted Vectors...</h1>
+
+\echo <h2>Totals....</h2>
+
+select sum(used_bytes)/1024/1024  sum_used_MB,sum(deleted_row_count) sum_del_rows
+from v_monitor.delete_vectors;
+
+
+\echo <h2>Top Objects (threshold 1000) ...</h2>
+
+select a.schema_name,b.anchor_table_name,a.projection_name,sum(a.used_bytes)/1024/1024  sum_used_MB,sum(a.deleted_row_count) sum_del_rows
+from v_monitor.delete_vectors a join projections b on (a.schema_name = b.projection_schema and a.projection_name = b.projection_name)
+group by a.schema_name,b.anchor_table_name,a.projection_name
+having sum(a.deleted_row_count) > 1000
+order by sum(a.deleted_row_count) desc ;
+
+
+--\echo <h2>Group by node ...</h2>
+
+--select node_name,sum(used_bytes)/1024/1024  sum_used_MB,sum(deleted_row_count) sum_del_rows
+--from v_monitor.delete_vectors
+--group by node_name
+--order by sum(deleted_row_count) desc;
+\echo <h2>Group by schema ...</h2>
+
+select schema_name,sum(used_bytes)/1024/1024  sum_used_MB,sum(deleted_row_count) sum_del_rows
+from v_monitor.delete_vectors
+group by schema_name
+order by sum(deleted_row_count) desc ;
+
+--\echo <h2>Group by node,schema ...</h2>
+
+--select node_name,schema_name,sum(used_bytes)/1024/1024  sum_used_MB,sum(deleted_row_count) sum_del_rows
+--from v_monitor.delete_vectors
+--group by node_name,schema_name
+--order by sum(deleted_row_count) desc
+--limit 30;
+
+\echo <h2>Top 5 objects By schema (order by deleted rows) ...</h2>
+
+select * from (
+select rank() over (partition by schema_name order by deleted_row_count desc ) as rank,
+node_name,schema_name,projection_name,used_bytes,deleted_row_count
+from v_monitor.delete_vectors ) a
+where rank <=5
+and schema_name not like '%MASTER'
+and deleted_row_count > 100
+order by schema_name,rank
+
+;
+
+\echo <h2>Top 5 objects By schema (order by bytes) ...</h2>
+
+select * from (
+select rank() over (partition by schema_name order by used_bytes desc ) as rank,
+node_name,schema_name,projection_name,used_bytes,deleted_row_count
+from v_monitor.delete_vectors ) a
+where rank <=5
+and schema_name not like '%MASTER'
+and (used_bytes > 100 or deleted_row_count > 1000)
+order by schema_name,rank
+
+

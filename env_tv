@@ -1,0 +1,6 @@
+export V_USER=dbadmin
+export V_PASS=in31ght
+export V_DB=vertica6-dev.convertro.com
+
+#set prompt="%n@%{\033[1;31m%}${V_DB}%{\033[0m%} %/ > "
+export PS1="\u@\e[0;31m[${V_DB}]\e[m\W > "

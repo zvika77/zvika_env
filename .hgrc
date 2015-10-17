@@ -1,0 +1,7 @@
+[extensions]
+mq =
+[auth]
+kiln.prefix = https://convertro.kilnhg.com
+kiln.username = zvika.gutkin
+kiln.password = Gutkin77!
+

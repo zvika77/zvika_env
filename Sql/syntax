@@ -1,0 +1,38 @@
+-- spool to file export data
+/opt/vertica/bin/vsql -At -c "select * from portfolio" | gzip > portfolio.gz
+
+
+--copy
+
+COPY site_data."DIM_AGENT"
+(lp_agent_id,lp_account_id,name,email,rep_version,active,username,max_chats,get_incoming_calls_ind,use_co_browse_ind,max_tickets,auto_answer_ind,login_name,
+                                  get_incoming_phone_calls_ind,max_concurrent_chats_per_call,ENABLED,max_talkbypc_while_chatting,phone_console_id,insert_date,modify_date,DISABLE_IND)
+FROM '/lpbi/code/vertica/dba/zvika/Temp/ZVIKAG_DIM_AGENT_TMP.csv' DELIMITER '~' ENCLOSED BY '"' DIRECT;
+
+
+--filler
+copy test1 (cdate_f FILLER date FORMAT 'YYYY-DD-MM', ignore FILLER varchar(10), cdate AS cdate_f) from '/usr/home/dbadmin/test.txt';
+
+
+--replace node with  new one 
+
+/opt/vertica/sbin/update_vertica -A NewHostName -R OldHostName -E -r rpm_package
+
+
+-- diagnostic
+
+/opt/vertica/bin/diagnostics
+
+
+/opt/vertica/scripts/collect_diag_dump.sh [-U username] [-w password]
+
+-- extended explain
+
+explain local verbose <query>
+grep "No of storages" = the number of ROS containers actually used
+
+
+-- grant on all tables in schema
+
+grant select on all tables in schema zvika to zvika;
+

@@ -1,0 +1,9 @@
+export V_USER=root
+export V_PASS=fruitile
+#export V_HOST=dv2-next-db.convertro.com
+export V_HOST=convertro-apps-next.convertro.com
+#export V_DB=convertro_tv_dashboard_V2
+export V_DB=insight
+
+#set prompt="%n@%{\033[1;31m%}${V_DB}%{\033[0m%} %/ > "
+export PS1="\u@\e[0;31m[${V_HOST}]\e[m\W > "

@@ -68,44 +68,46 @@ $current_statement
 
 # Registers:
 "0	LINE	0
-			print "v_part " + str(v_part)
-"1	LINE	0
+	RUN mkdir -p /home/Vertica
+""1	LINE	0
+	RUN mkdir -p /home/Vertica
+"2	LINE	0
+	RUN mkdir -p /home/Vertica/{Sql,Scripts,Log,Temp}
+"3	LINE	0
 	alter user smelamed15 identified by 'KJQvG0sN';
 	alter user smelamed15 profile cvo_dev_profile;
 	grant usage on resource pool cvo_dev to smelamed15;
 	alter user smelamed15 resource pool cvo_dev;
-"2	LINE	0
-	END AS impressions,
-"3	LINE	0
-	    ELSE SUM(vendor_total_impressions)
 "4	LINE	0
-	    THEN SUM(impressions) - SUM(vendor_measurable_impressions) + SUM(vendor_viewable_impressions)
+	END AS impressions,
 "5	LINE	0
-	    WHEN IFNULL(SUM(vendor_total_impressions), 0) <= SUM(impressions) - SUM(vendor_measurable_impressions) + SUM(vendor_viewable_impressions)
+	    ELSE SUM(vendor_total_impressions)
 "6	LINE	0
-	CASE
+	    THEN SUM(impressions) - SUM(vendor_measurable_impressions) + SUM(vendor_viewable_impressions)
 "7	LINE	0
-	select count(*) from zvika;
+	    WHEN IFNULL(SUM(vendor_total_impressions), 0) <= SUM(impressions) - SUM(vendor_measurable_impressions) + SUM(vendor_viewable_impressions)
 "8	LINE	0
-	or (schema_name ilike :1 and table_name ilike :2)
+	CASE
 "9	LINE	0
-	קספךשןמ
-""-	CHAR	0
-	<Your Image Name>
+	select count(*) from zvika;
+"-	CHAR	0
+	WORKDIR
 
 # File marks:
-'0  5  41  ~/start_container.bash
-'1  7  0  ~/start_container.bash
-'2  23  1  ~/README.md
-'3  15  0  ~/README.md
-'4  1  0  ~/.git/config
-'5  1  1674  ~/Sql/1.tmp
-'6  37  0  ~/Temp/nocase.tmp
-'7  38  0  ~/Temp/case.tmp
-'8  16  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
-'9  123  13  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+'0  13  0  ~/Dockerfile
+'1  5  41  ~/start_container.bash
+'2  7  0  ~/start_container.bash
+'3  23  1  ~/README.md
+'4  15  0  ~/README.md
+'5  1  0  ~/.git/config
+'6  1  1674  ~/Sql/1.tmp
+'7  37  0  ~/Temp/nocase.tmp
+'8  38  0  ~/Temp/case.tmp
+'9  16  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
 
 # Jumplist (newest first):
+-'  13  0  ~/Dockerfile
+-'  1  0  ~/Dockerfile
 -'  5  41  ~/start_container.bash
 -'  1  0  ~/start_container.bash
 -'  7  0  ~/start_container.bash
@@ -203,9 +205,21 @@ $current_statement
 -'  2  129  ~/Sql/mysql_rebuild_status_all.sql
 -'  1  2  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-1447146961
 -'  14  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
 
 # History of marks within files (newest to oldest):
+
+> ~/Dockerfile
+	"	13	0
+	.	18	0
+	+	30	0
+	+	14	0
+	+	18	20
+	+	18	21
+	+	18	12
+	+	17	0
+	+	20	0
+	+	16	0
+	+	18	0
 
 > ~/start_container.bash
 	"	5	41
@@ -1332,6 +1346,3 @@ $current_statement
 
 > /usr/local/bin/speedtest_cli
 	"	1	0
-
-> /usr/local/bin/speedtest
-	"	7	0

@@ -17,9 +17,9 @@
 $current_statement
 
 # Command Line History (newest to oldest):
-:q
 :wq
 :w
+:q
 :q1
 :q!
 :%s/query/current_statement/g
@@ -69,7 +69,7 @@ $current_statement
 # Registers:
 "0	LINE	0
 			print "v_part " + str(v_part)
-""1	LINE	0
+"1	LINE	0
 	alter user smelamed15 identified by 'KJQvG0sN';
 	alter user smelamed15 profile cvo_dev_profile;
 	grant usage on resource pool cvo_dev to smelamed15;
@@ -90,22 +90,28 @@ $current_statement
 	or (schema_name ilike :1 and table_name ilike :2)
 "9	LINE	0
 	קספךשןמ
-"-	CHAR	0
-	_
+""-	CHAR	0
+	<Your Image Name>
 
 # File marks:
-'0  1  0  ~/.git/config
-'1  1  1674  ~/Sql/1.tmp
-'2  37  0  ~/Temp/nocase.tmp
-'3  38  0  ~/Temp/case.tmp
-'4  16  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
-'5  123  13  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
-'6  138  17  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
-'7  1  0  /Users/zvikagutkin/OpsWorks/.git/config
-'8  6  2  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.18565
-'9  6  19  ~/Sql/show_query_profile_hist_search.sql
+'0  5  41  ~/start_container.bash
+'1  7  0  ~/start_container.bash
+'2  23  1  ~/README.md
+'3  15  0  ~/README.md
+'4  1  0  ~/.git/config
+'5  1  1674  ~/Sql/1.tmp
+'6  37  0  ~/Temp/nocase.tmp
+'7  38  0  ~/Temp/case.tmp
+'8  16  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+'9  123  13  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
 
 # Jumplist (newest first):
+-'  5  41  ~/start_container.bash
+-'  1  0  ~/start_container.bash
+-'  7  0  ~/start_container.bash
+-'  23  1  ~/README.md
+-'  3  0  ~/README.md
+-'  15  0  ~/README.md
 -'  1  0  ~/.git/config
 -'  1  1674  ~/Sql/1.tmp
 -'  37  0  ~/Temp/nocase.tmp
@@ -198,14 +204,38 @@ $current_statement
 -'  1  2  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-1447146961
 -'  14  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
 -'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
--'  45  9  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
--'  20  5  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
--'  575  0  ~/Sql/processing_ts_status_for_recovery.dat
--'  1  0  ~/Sql/processing_ts_status_for_recovery.dat
--'  431  0  /Users/zvikagutkin/.ssh/known_hosts
--'  1  1674  ~/Sql/1.tmp
 
 # History of marks within files (newest to oldest):
+
+> ~/start_container.bash
+	"	5	41
+	^	5	42
+	.	5	31
+	+	6	0
+	+	5	0
+	+	3	26
+	+	5	31
+
+> ~/README.md
+	"	23	1
+	^	23	2
+	.	23	1
+	+	4	31
+	+	3	33
+	+	4	0
+	+	5	0
+	+	28	0
+	+	14	0
+	+	1	0
+	+	17	109
+	+	17	18
+	+	25	31
+	+	27	58
+	+	19	1
+	+	15	1
+	+	19	17
+	+	24	0
+	+	23	1
 
 > ~/.git/config
 	"	1	0
@@ -1305,15 +1335,3 @@ $current_statement
 
 > /usr/local/bin/speedtest
 	"	7	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-7159469333
-	"	2	0
-	^	2	0
-	.	2	0
-	+	2	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-4294391904
-	"	1	0
-	^	1	1
-	.	1	0
-	+	1	0

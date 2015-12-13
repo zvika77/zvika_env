@@ -8,21 +8,22 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/YE
+~MSle0~/from
 
 # Last Substitute Search Pattern:
-~MSle0&RPLACE
+~MSle0&query
 
 # Last Substitute String:
-$
+$current_statement
 
 # Command Line History (newest to oldest):
 :q
-:n
 :wq
-:q!
 :w
 :q1
+:q!
+:%s/query/current_statement/g
+:n
 :%s/
 :/
 :1
@@ -36,9 +37,20 @@ $
 :e dash_queries1.sql
 :e dash_queries.sql.time
 :e dash_queries.sql
-:%s/nfl2/1800flowers/g
 
 # Search String History (newest to oldest):
+?/from
+?/dash_pp
+?/order
+?/40
+?/path
+?/iden
+? query
+?/q.
+?/10.69.54.99
+?/count
+?/days
+?/graphite-1
 ?/YE
 ?/match1
 ?/mysql
@@ -47,18 +59,6 @@ $
 ?/stage
 ?/sshpuppet
 ?/1
-?/graphite
-?/client_loading_metadata
-?/zvika
-?/metadata
-?/2015
-?/rel
-?/que
-?/rea
-?/queue
-?/ququ
-?/24
-?/cloud
 
 # Expression History (newest to oldest):
 
@@ -70,135 +70,539 @@ $
 "0	LINE	0
 			print "v_part " + str(v_part)
 ""1	LINE	0
-	;
+	alter user smelamed15 identified by 'KJQvG0sN';
+	alter user smelamed15 profile cvo_dev_profile;
+	grant usage on resource pool cvo_dev to smelamed15;
+	alter user smelamed15 resource pool cvo_dev;
 "2	LINE	0
-	select count(*) from one_demo.provider_id_mapping
+	END AS impressions,
 "3	LINE	0
-	                                print "[" + r.type + "]" + hostname + " " + ipAddress + " " + healthSummary
+	    ELSE SUM(vendor_total_impressions)
 "4	LINE	0
-	#		match1 = match1[0]
+	    THEN SUM(impressions) - SUM(vendor_measurable_impressions) + SUM(vendor_viewable_impressions)
 "5	LINE	0
-			print "matach1[6] " + str(match1[6])
+	    WHEN IFNULL(SUM(vendor_total_impressions), 0) <= SUM(impressions) - SUM(vendor_measurable_impressions) + SUM(vendor_viewable_impressions)
 "6	LINE	0
-			print "matach1[5] " + str(match1[5])
+	CASE
 "7	LINE	0
-			print "aa: " + str(aa)
+	select count(*) from zvika;
 "8	LINE	0
-			aa = 	
+	or (schema_name ilike :1 and table_name ilike :2)
 "9	LINE	0
-			aa = re.search('mehapnet\d.*\d', str(v_part))
+	קספךשןמ
 "-	CHAR	0
-	n
+	_
 
 # File marks:
-'0  1  0  ~/Sql/dash_queries.sql
-'1  41  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.13183
-'2  233  29  ~/myaliases
-'3  12  23  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.99994
-'4  81  69  ~/Sql/cm.py
-'5  84  7  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
-'6  8  0  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv
-'7  199  0  ~/myaliases
-'8  18  78  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.53982
-'9  1  38  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.53982
+'0  1  0  ~/.git/config
+'1  1  1674  ~/Sql/1.tmp
+'2  37  0  ~/Temp/nocase.tmp
+'3  38  0  ~/Temp/case.tmp
+'4  16  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+'5  123  13  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+'6  138  17  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+'7  1  0  /Users/zvikagutkin/OpsWorks/.git/config
+'8  6  2  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.18565
+'9  6  19  ~/Sql/show_query_profile_hist_search.sql
 
 # Jumplist (newest first):
--'  1  0  ~/Sql/dash_queries.sql
--'  1  0  ~/Sql/dash_queries.sh
--'  1  0  ~/Sql/dash_queries.post
--'  1  0  ~/Sql/dash_queries.exp
--'  1  0  ~/Sql/dash_queries.env
--'  41  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.13183
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.13183
--'  233  29  ~/myaliases
--'  1  0  ~/myaliases
--'  12  23  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.99994
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.99994
--'  81  69  ~/Sql/cm.py
--'  15  24  ~/Sql/cm.py
--'  11  0  ~/Sql/cm.py
--'  45  0  ~/Sql/cm.py
--'  89  0  ~/Sql/cm.py
--'  1  0  ~/Sql/cm.py
--'  84  7  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
--'  28  0  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
--'  46  1  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
--'  138  1  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
--'  59  2  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
--'  34  31  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
--'  1  0  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv/sportstv.py
--'  8  0  /Users/zvikagutkin/Library/Application Support/Kodi/addons/plugin.video.sportstv
--'  199  0  ~/myaliases
--'  18  78  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.53982
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.53982
--'  462  0  /Users/zvikagutkin/.ssh/known_hosts
+-'  1  0  ~/.git/config
+-'  1  1674  ~/Sql/1.tmp
+-'  37  0  ~/Temp/nocase.tmp
+-'  1  0  ~/Temp/nocase.tmp
+-'  38  0  ~/Temp/case.tmp
+-'  1  0  ~/Temp/case.tmp
+-'  16  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  123  13  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  56  4  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  27  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  68  15  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  84  13  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  138  17  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+-'  1  0  /Users/zvikagutkin/OpsWorks/.git/config
+-'  6  2  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.18565
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.18565
+-'  6  19  ~/Sql/show_query_profile_hist_search.sql
+-'  1  0  ~/Sql/show_query_profile_hist_search.sql
+-'  1  21  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  209  54  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  312  54  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  423  18  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  366  18  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  313  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  419  2  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  431  43  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  432  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  436  35  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  444  36  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  549  52  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+-'  19  0  ~/Sql/2.tmp
+-'  1  4  ~/Sql/2.tmp
+-'  2  137  ~/Sql/show_plan_info.sql
+-'  1  0  ~/Sql/show_plan_info.sql
+-'  2  0  ~/Sql/show_plan_info_wide.sql
+-'  1  0  ~/Sql/show_plan_info_wide.sql
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.44625
+-'  23  1  ~/Sql/show_query_profile_details_temp_reject.sql
+-'  1  0  ~/Sql/show_query_profile_details_temp_reject.sql
+-'  23  0  ~/Sql/show_query_profile_details_temp.sql
+-'  1  0  ~/Sql/show_query_profile_details_temp.sql
+-'  31  19  ~/Sql/show_query_profile_details_temp.sql
+-'  211  55  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.34627
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.34627
+-'  329  44  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.34627
+-'  446  44  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.34627
+-'  656  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.34627
+-'  1  9  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.8086
+-'  2  21  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.8086
+-'  31  32  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.8086
+-'  5  0  ~/Sql/show_session_active.sql
+-'  1  0  ~/Sql/show_session_active.sql
+-'  7  11  ~/Sql/show_session_active.sql
+-'  6  54  ~/Sql/show_session_active.sql
 -'  1  0  /Users/zvikagutkin/.ssh/known_hosts
--'  4  0  /Users/zvikagutkin/Downloads/Teach/rtmp_tes.strm
--'  2  210  /Users/zvikagutkin/Downloads/Teach/rtmp_tes.strm
--'  3  0  /Users/zvikagutkin/Downloads/Teach/rtmp_tes.strm
--'  1  195  /Users/zvikagutkin/Downloads/rtmp_tes.strm
--'  21  1  ~/Sql/show_query_profile_details.sql
+-'  410  0  /Users/zvikagutkin/.ssh/known_hosts
+-'  47  77  ~/Sql/4.tmp
+-'  1  0  ~/Sql/4.tmp
+-'  52  51  ~/Sql/3.tmp
+-'  1  0  ~/Sql/3.tmp
+-'  3  7  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.68718
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.68718
+-'  14  54  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.68718
+-'  22  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.68718
+-'  32  84  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.68718
+-'  25  46  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.68718
+-'  4  24  ~/Sql/show_hex_from_trx.sql
+-'  1  0  ~/Sql/show_hex_from_trx.sql
+-'  4  42  ~/Sql/show_trx_from_log.sql
+-'  1  0  ~/Sql/show_trx_from_log.sql
+-'  39  19  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.17537
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.17537
+-'  20  24  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.17537
+-'  39  19  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.13237
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.13237
+-'  25  11  ~/Sql/show_query_profile_details.sql
+-'  2  0  ~/Sql/show_query_profile_details.sql
 -'  1  0  ~/Sql/show_query_profile_details.sql
--'  5  38  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.67796
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.67796
--'  11  49  ~/Sql/1.tmp
--'  1  0  ~/Sql/1.tmp
--'  9  17  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.51936
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.51936
--'  227  88  ~/myaliases
--'  226  82  ~/myaliases
--'  225  78  ~/myaliases
--'  224  45  ~/myaliases
--'  223  67  ~/myaliases
--'  87  47  ~/myaliases
--'  1  28  ~/kkk
--'  8022  0  /private/tmp/deleted_vectore_issue.txt
--'  185  5  /private/tmp/deleted_vectore_issue.txt
--'  1  5  /private/tmp/deleted_vectore_issue.txt
--'  1  189  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.40377
--'  1  64  ~/Sql/show_epochs.sql
--'  3  86  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.32939
--'  1  109  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.32939
--'  4  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.32939
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-1438678951
--'  430  0  /Users/zvikagutkin/.ssh/known_hosts
--'  171  0  /Users/zvikagutkin/.ssh/known_hosts
--'  161  38  ~/myaliases
--'  218  23  ~/myaliases
--'  1  88  ~/dn
--'  217  23  ~/myaliases
--'  1  99  ~/zk
--'  6  26  ~/Sql/show_recovery_progress.sql
--'  1  0  ~/Sql/show_recovery_progress.sql
--'  67  0  /private/tmp/1.tmp
--'  69  86  /private/tmp/1.tmp
--'  105  86  /private/tmp/1.tmp
--'  56  11  /private/tmp/1.tmp
--'  1  0  /private/tmp/1.tmp
--'  89  25  /private/tmp/1.tmp
--'  1  26  ~/Sql/mysql_show_locks.sql
--'  9  0  /private/tmp/1.tmp
--'  1  0  ~/Sql/show_locks.sql
--'  3  77  ~/Sql/mysql_show_table_size.sql
--'  1  0  ~/Sql/mysql_show_table_size.sql
--'  5  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.19075
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.19075
--'  12  63  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.19075
--'  45  14  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  47  41  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  50  29  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  54  132  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  49  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  27  123  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15722
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15722
--'  53  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  57  35  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15822
--'  11  120  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15014
--'  14  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15014
--'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.15014
+-'  22  7  ~/Sql/show_query_profile_details.sql
+-'  3  0  ~/Sql/show_query_profile_details.sql
+-'  1  20  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.9233
+-'  2  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.9233
+-'  96  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.9233
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.7445
+-'  16  2301  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.7445
+-'  3  7  ~/Sql/mysql_rebuild_status_all.sql
+-'  1  0  ~/Sql/mysql_rebuild_status_all.sql
+-'  2  129  ~/Sql/mysql_rebuild_status_all.sql
+-'  1  2  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-1447146961
+-'  14  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
+-'  1  0  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
+-'  45  9  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
+-'  20  5  /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
+-'  575  0  ~/Sql/processing_ts_status_for_recovery.dat
+-'  1  0  ~/Sql/processing_ts_status_for_recovery.dat
+-'  431  0  /Users/zvikagutkin/.ssh/known_hosts
+-'  1  1674  ~/Sql/1.tmp
 
 # History of marks within files (newest to oldest):
+
+> ~/.git/config
+	"	1	0
+
+> ~/Sql/1.tmp
+	"	1	1674
+	^	1	1675
+	.	1	1669
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	0
+	+	1	15
+	+	1	0
+	+	1	85
+	+	1	0
+	+	1	85
+	+	1	0
+	+	1	85
+	+	1	0
+	+	1	85
+	+	1	0
+	+	1	85
+	+	1	0
+	+	1	85
+	+	1	0
+	+	1	85
+	+	1	21
+	+	1	12
+	+	1	0
+	+	1	69
+	+	1	0
+	+	1	69
+	+	1	15
+	+	1	40
+	+	1	37
+	+	1	25
+	+	1	11
+	+	1	81
+	+	1	14
+	+	1	35
+	+	1	0
+	+	1	0
+	+	1	87
+	+	1	0
+	+	1	1
+	+	1	7
+	+	1	22
+	+	1	0
+	+	1	88
+	+	1	7
+	+	1	54
+	+	1	34
+	+	173	37
+	+	1	7
+	+	1	12
+	+	1	0
+	+	1	271
+	+	1	0
+	+	1	133
+	+	1	0
+	+	3	49
+	+	1	0
+	+	1	50
+	+	1	0
+	+	1	1
+	+	1	111
+	+	1	143
+	+	1	121
+	+	1	72
+	+	1	50
+	+	1	47
+	+	1	25
+	+	1	1669
+
+> ~/Temp/nocase.tmp
+	"	37	0
+	^	37	0
+	.	36	37
+	+	36	37
+
+> ~/Temp/case.tmp
+	"	38	0
+	^	38	0
+	.	37	0
+	+	37	0
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.77257
+	"	16	20
+	^	123	14
+	.	16	20
+	+	138	17
+	+	84	13
+	+	123	13
+	+	16	20
+
+> /Users/zvikagutkin/OpsWorks/.git/config
+	"	1	0
+	.	1	0
+	+	1	0
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.18565
+	"	6	2
+	^	6	3
+	.	6	2
+	+	1	58
+	+	6	2
+
+> ~/Sql/show_query_profile_hist_search.sql
+	"	6	19
+	^	6	20
+	.	6	19
+	+	6	5
+	+	7	0
+	+	6	19
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.70911
+	"	1	21
+	^	1	22
+	.	1	21
+	+	549	0
+	+	432	21
+	+	432	0
+	+	432	22
+	+	444	36
+	+	439	0
+	+	434	34
+	+	436	35
+	+	432	0
+	+	313	21
+	+	431	0
+	+	419	2
+	+	313	0
+	+	1	18
+	+	418	30
+	+	423	18
+	+	312	0
+	+	1	0
+	+	209	0
+	+	1	21
+
+> ~/Sql/2.tmp
+	"	19	0
+	^	19	0
+	.	18	2
+	+	1	41
+	+	1	15
+	+	1	39
+	+	1	0
+	+	1	271
+	+	1	70
+	+	141	133
+	+	1	129
+	+	1	110
+	+	1	110
+	+	1	12
+	+	1	50
+	+	1	32
+	+	1	33
+	+	1	33
+	+	1	33
+	+	1	33
+	+	1	23
+	+	1	24
+	+	1	33
+	+	18	2
+
+> ~/Sql/show_plan_info.sql
+	"	2	137
+	^	2	145
+	.	2	137
+	+	2	137
+
+> ~/Sql/show_plan_info_wide.sql
+	"	2	0
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.44625
+	"	1	0
+	^	1	1
+	.	1	0
+	+	6	42
+	+	1	0
+
+> ~/Sql/show_query_profile_details_temp_reject.sql
+	"	23	1
+	^	23	2
+	.	23	1
+	+	1	62
+	+	31	0
+	+	23	1
+
+> ~/Sql/show_query_profile_details_temp.sql
+	"	23	0
+	^	23	2
+	.	23	0
+	+	31	0
+	+	23	0
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.34627
+	"	211	55
+	^	211	56
+	.	211	55
+	+	655	55
+	+	1	7
+	+	446	44
+	+	329	44
+	+	211	55
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.8086
+	"	1	9
+	^	31	33
+	.	2	0
+	+	32	0
+	+	31	32
+	+	2	0
+
+> ~/Sql/show_session_active.sql
+	"	5	0
+	^	7	91
+	.	5	0
+	+	4	9
+	+	8	1
+	+	9	0
+	+	7	0
+	+	7	89
+	+	5	10
+	+	5	0
+
+> /Users/zvikagutkin/.ssh/known_hosts
+	"	1	0
+	.	410	0
+	+	171	0
+	+	429	0
+	+	461	0
+	+	431	0
+	+	410	0
+
+> ~/Sql/4.tmp
+	"	47	77
+	^	47	78
+	.	47	66
+	+	47	66
+
+> ~/Sql/3.tmp
+	"	52	51
+	^	52	52
+	.	52	12
+	+	1	47
+	+	1	51
+	+	1	125
+	+	52	12
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.68718
+	"	3	7
+	^	14	55
+	.	14	54
+	+	32	47
+	+	1	9
+	+	21	49
+	+	14	54
+
+> ~/Sql/show_hex_from_trx.sql
+	"	4	24
+	^	4	25
+	.	4	24
+	+	4	24
+
+> ~/Sql/show_trx_from_log.sql
+	"	4	42
+	^	4	43
+	.	4	42
+	+	2	33
+	+	4	42
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.17537
+	"	39	19
+	^	39	20
+	.	39	19
+	+	39	0
+	+	20	24
+	+	39	19
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.13237
+	"	39	19
+	^	39	20
+	.	39	19
+	+	59	0
+	+	1	6
+	+	40	0
+	+	1	14
+	+	39	17
+	+	1	20
+	+	40	0
+	+	39	19
+
+> ~/Sql/show_query_profile_details.sql
+	"	25	11
+	^	3	1
+	.	25	11
+	+	25	10
+	+	22	21
+	+	25	12
+	+	3	0
+	+	5	25
+	+	3	0
+	+	25	11
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.9233
+	"	1	20
+	^	1	21
+	.	1	20
+	+	99	0
+	+	2	20
+	+	2	0
+	+	99	14
+	+	100	0
+	+	2	0
+	+	1	20
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.7445
+	"	1	0
+	^	16	2302
+	.	1	0
+	+	16	2281
+	+	1	0
+
+> ~/Sql/mysql_rebuild_status_all.sql
+	"	3	7
+	^	3	8
+	.	3	7
+	+	3	7
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-1447146961
+	"	1	2
+	^	1	3
+	.	1	2
+	+	1	2
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.39397
+	"	14	0
+	^	14	0
+	.	13	0
+	+	45	9
+	+	13	0
+
+> ~/Sql/processing_ts_status_for_recovery.dat
+	"	575	0
+	.	1	0
+	+	1	0
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.20667
+	"	51	10
+	^	51	11
+	.	51	0
+	+	51	0
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.13213
+	"	1	0
+	^	50	192
+	.	50	175
+	+	50	175
+
+> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.8669
+	"	37	11
+	^	37	12
+	.	37	0
+	+	178	0
+	+	143	0
+	+	142	0
+	+	143	0
+	+	1	62
+	+	107	0
+	+	1	62
+	+	72	0
+	+	1	62
+	+	37	0
+
+> ~/Sql/check_ros_limit.sql
+	"	7	6
+	^	11	23
+	.	7	6
+	+	11	0
+	+	1	6
+	+	7	6
+	+	8	0
+	+	7	6
+
+> ~/Sql/check_ros_wos_info.sql
+	"	1	0
+
+> ~/Sql/mysql_rebuild_status.sql
+	"	3	24
+	^	3	32
+	.	3	33
+	+	6	285
+	+	3	33
 
 > ~/Sql/dash_queries.env
 	"	1	0
@@ -515,13 +919,6 @@ $
 	+	1	38
 	+	18	78
 
-> /Users/zvikagutkin/.ssh/known_hosts
-	"	462	0
-	.	463	0
-	+	171	0
-	+	430	0
-	+	463	0
-
 > /Users/zvikagutkin/Downloads/Teach/rtmp_tes.strm
 	"	4	0
 	^	2	212
@@ -544,78 +941,11 @@ $
 	.	1	156
 	+	1	156
 
-> ~/Sql/show_query_profile_details.sql
-	"	21	1
-	^	21	2
-	.	21	1
-	+	24	10
-	+	21	1
-
 > /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.67796
 	"	5	38
 	^	5	39
 	.	5	39
 	+	5	39
-
-> ~/Sql/1.tmp
-	"	11	49
-	^	11	50
-	.	11	49
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	0
-	+	1	15
-	+	1	0
-	+	1	85
-	+	1	0
-	+	1	85
-	+	1	0
-	+	1	85
-	+	1	0
-	+	1	85
-	+	1	0
-	+	1	85
-	+	1	0
-	+	1	85
-	+	1	0
-	+	1	85
-	+	1	21
-	+	1	12
-	+	1	0
-	+	1	69
-	+	1	0
-	+	1	69
-	+	1	15
-	+	1	40
-	+	1	37
-	+	1	25
-	+	1	11
-	+	1	81
-	+	1	14
-	+	1	35
-	+	1	0
-	+	1	0
-	+	1	87
-	+	1	0
-	+	1	1
-	+	1	7
-	+	1	22
-	+	1	0
-	+	1	88
-	+	1	7
-	+	1	54
-	+	1	34
-	+	181	37
-	+	1	7
-	+	1	12
-	+	1	0
-	+	1	271
-	+	1	0
-	+	1	133
-	+	1	0
-	+	11	49
 
 > /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.51936
 	"	9	17
@@ -869,26 +1199,6 @@ $
 	+	1	46
 	+	157	186
 
-> ~/Sql/3.tmp
-	"	1	0
-	^	1	0
-	.	1	0
-	+	1	47
-	+	1	51
-	+	1	0
-
-> ~/Sql/2.tmp
-	"	1	0
-	^	134	134
-	.	134	133
-	+	1	41
-	+	1	15
-	+	1	39
-	+	1	0
-	+	1	271
-	+	1	70
-	+	134	133
-
 > ~/Sql/mysql_show_ddl.sql
 	"	1	0
 	^	1	21
@@ -1007,254 +1317,3 @@ $
 	^	1	1
 	.	1	0
 	+	1	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/bash-fc-1431494650
-	"	1	0
-	^	1	0
-
-> /Users/zvikagutkin/speedtest_cli
-	"	1	0
-
-> /Users/zvikagutkin/PythonVm/convertro/sovok.py
-	"	12	7
-	^	21	9
-	.	21	8
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	1	15
-	+	78	30
-	+	24	13
-	+	24	9
-	+	7	1
-	+	26	0
-	+	24	13
-	+	25	8
-	+	33	4
-	+	33	8
-	+	33	4
-	+	77	17
-	+	32	20
-	+	33	0
-	+	15	3
-	+	16	3
-	+	33	7
-	+	16	0
-	+	21	8
-
-> /Users/zvikagutkin/Library/Application Support/Kodi/addons/script.module.requests/addon.xml
-	"	1	0
-
-> /Users/zvikagutkin/PythonVm/convertro/test.py
-	"	218	0
-	^	218	0
-	.	217	56
-	+	434	0
-	+	1	17
-	+	217	56
-
-> /Users/zvikagutkin/netspeed.bash
-	"	5	11
-	.	5	11
-	+	3	11
-	+	4	11
-	+	5	11
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.27915
-	"	1	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.27978
-	"	15	22
-	^	15	23
-	.	15	22
-	+	1	29
-	+	66	35
-	+	49	14
-	+	53	727
-	+	49	14
-	+	47	22
-	+	1	29
-	+	34	0
-	+	17	0
-	+	15	22
-
-> /Users/zvikagutkin/Downloads/speed_check-master/speedtest_server_list.txt
-	"	414	45
-	.	414	0
-	+	414	0
-
-> /Users/zvikagutkin/Downloads/speed_check-master/SpeedCheck.py
-	"	77	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.6475
-	"	6	53
-	^	6	54
-	.	6	53
-	+	6	53
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.5413
-	"	265	0
-	^	265	0
-	.	264	66
-	+	1	43
-	+	264	66
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.1824
-	"	56	64
-	^	56	65
-	.	56	64
-	+	56	64
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.45830
-	"	9	0
-	^	6	53
-	.	9	0
-	+	8	0
-	+	7	0
-	+	6	0
-	+	9	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.45816
-	"	17	5
-	^	17	6
-	.	17	5
-	+	18	0
-	+	17	0
-	+	18	0
-	+	17	5
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.44413
-	"	19	1
-	^	19	2
-	.	19	1
-	+	21	0
-	+	20	0
-	+	1	0
-	+	18	49
-	+	17	5
-	+	19	1
-
-> ~/Sql/show_query_profile.sql
-	"	7	10
-	^	7	11
-	.	7	10
-	+	7	10
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.44176
-	"	1	0
-	^	1	1
-	.	1	0
-	+	18	21
-	+	1	0
-
-> ~/Sql/1a.tmp
-	"	17	16
-	^	17	17
-	.	17	0
-	+	1	0
-	+	1	7
-	+	17	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.44116
-	"	1	0
-	^	19	0
-	.	18	20
-	+	1	21
-	+	18	20
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.36518
-	"	98	0
-	^	98	0
-	.	97	88
-	+	97	88
-
-> ~/Sql/dash_queries_qvc.sql
-	"	16	0
-	.	1	0
-	+	465	0
-	+	1	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.31852
-	"	772	36
-	^	772	37
-	.	772	36
-	+	772	36
-
-> ~/Sql/show_err.sql
-	"	19	1
-	^	19	2
-	.	19	1
-	+	19	1
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.4441
-	"	98	0
-	^	98	0
-	.	97	88
-	+	97	88
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.89139
-	"	183	0
-	^	183	0
-	.	182	0
-	+	182	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.87868
-	"	456	36
-	^	456	37
-	.	456	36
-	+	456	36
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.87736
-	"	456	36
-	^	456	37
-	.	456	36
-	+	1201	0
-	+	1	22
-	+	456	36
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.87724
-	"	1	19578
-	^	1	19579
-	.	1	19556
-	+	1	19556
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.87640
-	"	749	0
-	^	749	0
-	.	748	0
-	+	748	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.87634
-	"	749	0
-	^	749	0
-	.	748	0
-	+	748	0
-
-> /private/var/folders/tc/1sqdmpds4sbdxy854mjp2jz00000gn/T/vsql.edit.87041
-	"	1	0
-	.	1	0
-	+	748	0
-	+	1	0
-
-> ~/Sql/dash_queries.vertica-perf-1.convertro.com_qvc.sql.out
-	"	150738	0
-
-> ~/Sql/dash_queries_qvc.exp
-	"	2	16
-	^	333	7
-	.	333	6
-	+	1	6
-	+	53	6
-	+	57	6
-	+	159	6
-	+	191	6
-	+	333	6

@@ -1,5 +1,5 @@
-export V_USER=root
-export V_PASS=fruitile
+export V_USER=$m_user_prod
+export V_PASS=$m_pass_prod
 #export V_HOST=dv2-next-db.convertro.com
 export V_HOST=convertro-apps-next.convertro.com
 #export V_DB=convertro_tv_dashboard_V2

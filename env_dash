@@ -1,5 +1,5 @@
-export V_USER=dbadmin
-export V_PASS=fruitile
+export V_USER=$v_user_prod
+export V_PASS=$v_pass_prod
 export V_DB=vertica-dash.convertro.com
 
 #set prompt="%n@%{\033[1;31m%}${V_DB}%{\033[0m%} %/ > "

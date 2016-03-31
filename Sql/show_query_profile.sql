@@ -14,5 +14,6 @@ from query_profiles qpo
 where (session_id ilike :1 or  node_name ilike :1 or user_name ilike :1 OR transaction_id::VARCHAR = :1 OR query_type = :1 or identifier ilike :1 or 
 NVL(case when query like 'COPY%' then REGEXP_SUBSTR(query,'(/tmp/)(\w+).',1,1,'',2) else REGEXP_SUBSTR(query,'(client)\s*=\s*''(\w+)''',1,1,'',2) end,'') like :1 )
 and query_type != 'SET'
+and isutf8(query) = 't'
 order by query_start::timestamptz desc,query_duration_us desc  ;
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SCRIPT_DIR=/home/oracle/11g/vertica_scripts
+SCRIPT_DIR=/Users/zvikagutkin/Vertica
 
-for list in /home/zvikag/Vertica/Scripts/campaign/*.sql
+for list in /Users/zvikagutkin/Vertica/Scripts/*.sql
 do
    echo "$list"
    echo ""
@@ -22,14 +22,14 @@ echo -n "Enter vertica env: "
 read env
 
 
-user=`grep user $SCRIPT_DIR/$env | awk '{ print $2 }'`
-pass=`grep pass $SCRIPT_DIR/$env | awk '{ print $2 }'`
-server=`grep host $SCRIPT_DIR/$env | awk '{ print $2 }'`
+#user=`grep user $SCRIPT_DIR/$env | awk '{ print $2 }'`
+#pass=`grep pass $SCRIPT_DIR/$env | awk '{ print $2 }'`
+#server=`grep host $SCRIPT_DIR/$env | awk '{ print $2 }'`
 
 
-export V_USER=${user}
-export V_PASS=${pass}
-export V_DB=${server}
+#export V_USER=${user}
+#export V_PASS=${pass}
+#export V_DB=${server}
 
 echo "Started Load test on ${V_USER}@${V_DB} ...."
 
@@ -53,7 +53,7 @@ echo `date` > ${sql_path}.time
 echo "Timing : " >> ${sql_path}.time
 
 #for (( ; ; ))
-for j in {1..30}
+for j in {1..10}
 do
   (echo "\timing" ; cat ${sql_path}) | /opt/vertica/bin/vsql -U $V_USER -w $V_PASS -h $V_DB | awk '/^Time:/ {print $6 " " $11 }'  >> ${sql_path}.time
   sleep 1.1
@@ -100,4 +100,3 @@ done
 #   wait
 #
 #done
-

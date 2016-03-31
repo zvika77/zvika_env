@@ -1,4 +1,5 @@
 select 
+row_number() over (order by MB_count desc ) as rnum,
 *
 ,((mb_count / sum(mb_count) over () )*100)::number(10,2)  as percent
 from (

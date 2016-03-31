@@ -16,7 +16,7 @@ decode(is_executing,true,extract (seconds from (sysdate::timestamptz - query_sta
 processed_row_count as rows,query_start::timestamptz as query_start_v
 ,error_code as err
 from query_profiles qpo
-where (identifier in ('dash_spend_rec_engine','dash_display_report_chart_cost','cross_channel_chart','affiliate_report_chart_cost','dash_device_chart_cost','dash_geo','cross_channel_perf','cross_channel_influence_chart')
+where (identifier in ('dash_spend_rec_engine','dash_display_report','dash_display_report_chart_cost','cross_channel_chart','affiliate_report_chart_cost','dash_device_chart_cost','dash_geo','cross_channel_perf','cross_channel_influence_chart')
  or  table_name =  'dash_session_tmp_spend_reco_calced' )
 and (user_name = 'dash_v2user' or user_name = 'dash_prod' )
 ) a

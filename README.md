@@ -29,6 +29,9 @@ docker run -it --name <Your Container Name>  <Your Image Name>
 or
 docker run -it -e v_user_prod=XXX -e v_pass_prod=XXX -e v_user_dev=XXX -e v_pass_dev=XXX -e m_user_prod=XXX -e m_pass_prod=XXX -e m_user_dev=XXX -e m_pass_dev=XXX --rm --name vertica  vertica_env
 
+enter the cotainer env
+docker exec -it <container id> /bin/bash
+
 ##Useful shortcuts
 
 cdsql => cd to Sql scripts dir

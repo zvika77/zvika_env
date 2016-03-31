@@ -2,7 +2,8 @@
 
 OUT_DIR=/tmp
 DOT_DIR=/tmp
-GRAPH_DIR=/var/www/html
+GRAPH_DIR=/tmp
+#GRAPH_DIR=/var/www/html
 
 script_full_path=$1
 script=`echo $(basename $1)`
@@ -28,13 +29,14 @@ echo "start => $start "
 echo "end => $end "
 
 echo $start-3
-sed -n '1,$(($start-3)) p' ${OUT_DIR}/${script}.out
-echo "sed -n '1,$(($start-3)) p' ${OUT_DIR}/${script}.out"
-exit
+new_start=$(($start-3))
+sed -n ''"$new_start"','"$end"' p' ${OUT_DIR}/${script}.out
+#echo "sed -n '1,$(('\"$new_start\"')) p' ${OUT_DIR}/${script}.out"
 # create the graph file
 
-sed -n '$start,$(($end-2)) p' ${OUT_DIR}/${script}.out > ${DOT_DIR}/${script}.out.dot
-echo "sed -n '$start,$(($end-2)) p' ${OUT_DIR}/${script}.out > ${DOT_DIR}/${script}.out.dot"
+new_end=$(($end-2))
+sed -n ''"$new_start"','"$new_end"' p' ${OUT_DIR}/${script}.out > ${DOT_DIR}/${script}.out.dot
+echo "sed -n '$new_start,$(($end-2)) p' ${OUT_DIR}/${script}.out > ${DOT_DIR}/${script}.out.dot"
 #sed  "1,$(($start-1)) d"  < ${script}.out > ${DOT_DIR}/${script}.out.dot
 
 #echo ${DOT_DIR}/${script}.out.dot

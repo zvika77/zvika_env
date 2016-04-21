@@ -28,6 +28,8 @@ docker build -t <Your Image Name> .
 docker run -it --name <Your Container Name>  <Your Image Name>
 or
 docker run -it -e v_user_prod=XXX -e v_pass_prod=XXX -e v_user_dev=XXX -e v_pass_dev=XXX -e m_user_prod=XXX -e m_pass_prod=XXX -e m_user_dev=XXX -e m_pass_dev=XXX --rm --name vertica  vertica_env
+or
+docker run -it -e v_user_prod=XXX -e v_pass_prod=XXX -e v_user_dev=XXX -e v_pass_dev=XXX -e m_user_prod=XXX -e m_pass_prod=XXX -e m_user_dev=XXX -e m_pass_dev=XXX -v <full_ssh_path>.ssh:/root/.ssh --rm --name vertica  vertica_env
 
 enter the cotainer env
 docker exec -it <container id> /bin/bash
@@ -47,6 +49,5 @@ q show_locks.sql % => query all locks
 mysqprod / mysqlstage => Enter mysql env
 my mysql_rebuild_status_all.sql => show clients rebuild status
 myy => enter mysql 
-
 
 

@@ -1,4 +1,4 @@
-SELECT node_name, MAX (ts) AS ts, MAX(catalog_size_in_MB)
+SELECT node_name, MAX (ts) AS ts, (MAX(catalog_size_in_MB))::int
    AS catlog_size_in_MB
    FROM
    (SELECT node_name,

@@ -1,5 +1,6 @@
 select projection_schema,projection_name,owner_name,anchor_table_name,is_prejoin,create_type
 ,verified_fault_tolerance,is_up_to_date,has_statistics,is_segmented
+,segment_expression
 from v_catalog.projections
 where
 (upper(projection_schema) ilike upper(:1) or upper(owner_name) ilike upper(:1) )

@@ -1,0 +1,1 @@
+csshX -l root --ssh_args "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" `ssh root@vertica-dash.convertro.com "runuser -l dbadmin -c 'admintools -t list_allnodes' " | awk -F'|' ' /v_insight/ {print $2}'`

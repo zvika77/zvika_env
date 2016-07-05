@@ -16,7 +16,7 @@ All scripts located under Sql directory.
 
 git clone https://convertro.kilnhg.com/Code/Repositories/Zvika/Vertica.git
 
-## Start contanier
+## Start container
 
 you have to supply passwords for Vertica (prod/dev) and Mysql (prod/dev)
 default users for Vertica is dbadmin and for mysql is root

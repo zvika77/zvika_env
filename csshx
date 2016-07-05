@@ -1,1 +1,0 @@
-csshX -l root --ssh_args "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" `vsql -U ${V_USER} -w ${V_PASS} -h ${V_DB} -tA -c"select node_address from nodes order by node_name" | grep -v SET | grep -v Tim`

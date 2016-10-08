@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SCRIPT_DIR=/Users/zvikagutkin/Vertica
+SCRIPT_DIR=/home/Vertica
 
-for list in /Users/zvikagutkin/Vertica/Scripts/*.sql
+for list in /home/Vertica/Scripts/*.sql
 do
    echo "$list"
    echo ""

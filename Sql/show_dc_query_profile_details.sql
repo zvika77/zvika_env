@@ -15,11 +15,11 @@ sum(decode(counter_name,'estimated rows produced',counter_value,null)) as "estim
 sum(decode(counter_name,'rows produced',counter_value,null)) as "rows produced",
 (sum(decode(counter_name,'memory reserved (bytes)',counter_value/1024/1024,null)))::number(30,2) as "memory reserved (MB)",
 (sum(decode(counter_name,'memory allocated (bytes)',counter_value/1024/1024,null)))::number(30,2) as "memory allocated (MB)"
-from v_monitor.execution_engine_profiles
+from dc_execution_engine_profiles
 where transaction_id = :1
 and statement_id = :2
 and counter_value/1000000 > 0
 and node_name ilike :3
 and counter_name in ('execution time (us)','clock time (us)','estimated rows produced','rows produced','memory reserved (bytes)','memory allocated (bytes)')
 group by node_name,transaction_id||' / '||statement_id,operator_name,path_id ) a
-order by 7 desc ;
+order by 1,6,4 desc;

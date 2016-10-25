@@ -7,5 +7,5 @@ mysql -u${V_USER} -p${V_PASS} -h ${V_HOST} -D ${V_DB} -e " source mysql_check_qu
 source ${HOME}/env_dash
 for client in $(cat /tmp/queue_clients.tmp); do
 echo $client
-/Users/zvikagutkin/Vertica/Sql/run_sql_noecho.ksh check_queued_reports.sql $client
+${HOME}/Sql/run_sql_noecho.ksh check_queued_reports.sql $client
 done

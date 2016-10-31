@@ -1,7 +1,9 @@
 \a
-\pset tuples_only
-\o kill_session_script.tmp
-select 'select CLOSE_SESSION ('''||session_id||''');' from sessions where  user_name = :1 ;
+\t
+\o /tmp/kill_session.lst
+select 'select CLOSE_SESSION ('''||session_id||''');' from sessions where  (user_name ilike :1 or session_id ilike :1 or client_hostname ilike :1);
 \o
 
-\echo Run Script kill_session_script.tmp
+\! cat  /tmp/kill_session.lst
+
+\echo Run q /tmp/kill_session.lst

@@ -9,7 +9,8 @@ RUN yum -y update && \
     yum -y install mysql yum clean all &&  \
     wget http://my.vertica.com/client_drivers/7.1.x/vertica-client-7.1.2-0.x86_64.tar.gz -O /opt/vertica-client-7.1.2-0.x86_64.tar.gz && \
     tar -zxvf /opt/vertica-client-7.1.2-0.x86_64.tar.gz -C / && \
-    mkdir -p /home/Vertica && mkdir -p /home/Vertica/{Scripts,Log,Temp}
+    mkdir -p /home/Vertica && mkdir -p /home/Vertica/{Scripts,Log,Temp} && \
+    echo 'Host *' >> /etc/ssh/ssh_config && echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config && echo 'UserKnownHostsFile=/dev/null' >> /etc/ssh/ssh_config
 
 ADD  ./  /home/Vertica/
 

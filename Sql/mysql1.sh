@@ -16,4 +16,4 @@ echo Param4 $param4
 echo =======================
 
 
-mysql -A -u${V_USER} -p${V_PASS} -h ${V_HOST} -D ${V_DB} 
+mysql --ssl -A -u${V_USER} -p${V_PASS} -h ${V_HOST} -D ${V_DB} 

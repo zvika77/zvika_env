@@ -1,7 +1,7 @@
 export V_USER=$m_user_prod
 export V_PASS=$m_pass_prod
-export V_HOST=dv2-next-db.convertro.com
-export V_DB=convertro_tv_dashboard_V2
+export V_HOST=dv2-demo.convertro.com
+export V_DB=mysql
 
 #set prompt="%n@%{\033[1;31m%}${V_DB}%{\033[0m%} %/ > "
 export PS1="\u@\e[0;31m[${V_HOST}]\e[m\W > "

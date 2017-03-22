@@ -26,7 +26,7 @@ do
 echo HOST $V_HOST
 echo =======================
 
-mysql --ssl -A -u${V_USER} -p${V_PASS} -h ${V_HOST} -D ${V_DB} -e "set @1:='$param1'; set @2='$param2'; source ${script} ;"
+mysql --ssl --ssl-cipher=AES256-SHA -A -u${V_USER} -p${V_PASS} -h ${V_HOST} -D ${V_DB} -e "set @1:='$param1'; set @2='$param2'; source ${script} ;"
 done
 
 

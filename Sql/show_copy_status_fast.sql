@@ -4,7 +4,7 @@ SELECT transaction_id,
           sum(CASE WHEN counter_tag = 'main'
               AND counter_name = 'input size (bytes)'
               AND (operator_name = 'Load'
-                   OR operator_name = 'LoadUnion') THEN 1 ELSE 0 END) AS total_rows,
+                   OR operator_name = 'LoadUnion') THEN counter_value ELSE 0 END) AS total_rows,
           sum(CASE WHEN operator_name = 'Load'
               AND counter_name = 'rows produced' THEN counter_value ELSE 0 END) AS accepted_row_count,
           sum(CASE WHEN operator_name = 'Load'

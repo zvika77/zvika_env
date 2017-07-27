@@ -4,4 +4,4 @@ export V_HOST=dv2-demo.convertro.com
 export V_DB=mysql
 
 #set prompt="%n@%{\033[1;31m%}${V_DB}%{\033[0m%} %/ > "
-export PS1="\u@\e[0;31m[${V_HOST}]\e[m\W > "
+export PS1="\u@\[\e[0;31m[\]${V_HOST}]\[\e[m\]\W > "

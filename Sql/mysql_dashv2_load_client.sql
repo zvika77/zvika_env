@@ -5,5 +5,5 @@ case when job_run_status = '' then TIMESTAMPDIFF(MINUTE,start_date ,sysdate())
 from insight.dashv2_etl_stats
 where client like @1
 and run_type like @2
-order by last_update_date ;
-
+order by last_update_date  desc 
+;

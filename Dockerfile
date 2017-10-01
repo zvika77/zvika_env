@@ -22,7 +22,7 @@ RUN wget http://www.trieuvan.com/apache/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.
     mkdir -p /home/Vertica && mkdir -p /home/Vertica/{Scripts,Log,Temp} && \
     echo 'Host *' >> /etc/ssh/ssh_config && echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config && echo 'UserKnownHostsFile=/dev/null' >> /etc/ssh/ssh_config
 
-#install pip,aws cli, awless, awsfedd
+#install pip,aws cli, awless, awsfedd, mycli
 RUN curl -O https://bootstrap.pypa.io/get-pip.py 
 RUN    python get-pip.py --user 
 RUN    ~/.local/bin/pip install awscli --upgrade --user 
@@ -30,6 +30,7 @@ RUN    curl https://raw.githubusercontent.com/wallix/awless/master/getawless.sh 
 RUN     ln -s /awless /usr/local/bin/awless 
 RUN     awless completion bash | tee /etc/bash_completion.d/awless > /dev/null
 RUN     pip install ptpython
+RUN     pip install mycli
 
 RUN PIP_EXTRA_INDEX_URL=https://pypi.idb2b.aolcloud.net/simple ~/.local/bin/pip install awsfed
 RUN ~/.local/bin/pip install -U aol-sshakr --extra-index-url https://artifactory.us-east-1.aws.aol.com:443/artifactory/pypi-onecloud-us-east-1-local

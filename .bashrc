@@ -1,0 +1,1 @@
+source <(awless completion bash)

@@ -14,7 +14,7 @@ class cm_utils(object):
         self.host = host.lower()
 	self.list = list.lower()
         cm_host = '10.7.177.234'
-        self.api = ApiResource(cm_host, username="admin", password="fruitile4u#")
+        self.api = ApiResource(cm_host, username="admin", password="XXX")
         # "ALL" if service == "None" else  service
         # "ALL" if role == "None" else role
         # "ALL" if host == "None" else host

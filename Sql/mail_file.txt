@@ -5,7 +5,7 @@ Here is the connection info:
 ******************************
 
 USER: RPT_ETL
-PASS: NTZmNTM3
+PASS: XXX
 DB HOST: slpr-dbv01
 
 ******************************

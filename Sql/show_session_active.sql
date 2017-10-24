@@ -1,4 +1,4 @@
-select client_id,trx_stm as 'trx/stm',session_id,user_name,current_statement
+select  client_id,trx_stm as 'trx/stm',session_id,user_name,current_statement
 ,dur,client_hostname
  from (
 select   

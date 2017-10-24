@@ -14,7 +14,7 @@ All scripts located under Sql directory.
 
 ## Installation
 
-git clone https://convertro.kilnhg.com/Code/Repositories/Zvika/Vertica.git
+git clone https://github.com/zvika77/zvika_env.git
 
 ## Start container
 

@@ -12,13 +12,18 @@ RUN yum -y update && \
     yum -y install bash-completion && \
     yum -y install mysql yum clean all 
 
+# Install python 3.6
+
+RUN yum -y install https://centos7.iuscommunity.org/ius-release.rpm && \
+    yum -y install python36u 
+
 #install hadoop, vertica client    
 RUN wget http://www.trieuvan.com/apache/hadoop/common/hadoop-2.6.5/hadoop-2.6.5.tar.gz  -O /tmp/hadoop-2.6.5.tar.gz && \
     tar -zxvf /tmp/hadoop-2.6.5.tar.gz -C /usr/local  &&   \
 #    wget http://mirror.jax.hugeserver.com/apache/hbase/stable/hbase-1.2.4-bin.tar.gz -O /tmp/hbase-1.2.4-bin.tar.gz && \
 #    tar -zxvf /tmp/hbase-1.2.4-bin.tar.gz -C /usr/local  &&   \
-    wget http://my.vertica.com/client_drivers/7.1.x/vertica-client-7.1.2-0.x86_64.tar.gz -O /opt/vertica-client-7.1.2-0.x86_64.tar.gz && \
-    tar -zxvf /opt/vertica-client-7.1.2-0.x86_64.tar.gz -C / && \
+    wget https://my.vertica.com/client_drivers/8.1.x/8.1.1-2/vertica-client-8.1.1-2.x86_64.tar.gz -O /opt/vertica-client-8.1.1-2.x86_64.tar.gz && \
+    tar -zxvf /opt/vertica-client-8.1.1-2.x86_64.tar.gz -C / && \
     mkdir -p /home/Vertica && mkdir -p /home/Vertica/{Scripts,Log,Temp} && \
     echo 'Host *' >> /etc/ssh/ssh_config && echo 'StrictHostKeyChecking no' >> /etc/ssh/ssh_config && echo 'UserKnownHostsFile=/dev/null' >> /etc/ssh/ssh_config
 
@@ -27,7 +32,7 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN    python get-pip.py --user 
 RUN    ~/.local/bin/pip install awscli --upgrade --user 
 RUN    curl https://raw.githubusercontent.com/wallix/awless/master/getawless.sh | bash 
-RUN     ln -s /awless /usr/local/bin/awless 
+RUN     ln -s ./awless /usr/local/bin/awless 
 RUN     awless completion bash | tee /etc/bash_completion.d/awless > /dev/null
 RUN     pip install ptpython
 RUN     pip install mycli

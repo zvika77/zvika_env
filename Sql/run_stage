@@ -1,6 +1,0 @@
-#!/bin/bash
-cd /Users/zvikagutkin/Vertica/Sql
-for i in {1..$1}
-do
-	cat path_stage.sql  queries.sql | vsql -U dbadmin -h vertica-stage.convertro.com -a  --echo-all > queries_stage${i}.log
-done

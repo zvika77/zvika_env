@@ -1,1 +1,0 @@
-cat path_stage7.sql  queries.sql | vsql -U dbadmin -h vertica-stage7.convertro.com -a  --echo-all > queries_stage7.log

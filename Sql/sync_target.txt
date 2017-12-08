@@ -1,3 +1,0 @@
-zvikag ZVIKAG U:\Oracle\vertica\sql\ master
-zvikag stm23 /home/zvikag/Vertica/Sql/ slave
-zvikag tlvertica /home/zvikag/Sql/ slave

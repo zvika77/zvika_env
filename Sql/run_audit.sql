@@ -1,1 +1,0 @@
-select audit(:1)

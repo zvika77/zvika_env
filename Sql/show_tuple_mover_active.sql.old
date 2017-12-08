@@ -1,9 +1,0 @@
-SELECT  
-to_char(time,'dd/mm/yy hh24:mi:ss') as time,(timestampdiff('second',time,sysdate))::int b4_sec,node_name,user_name,operation,plan_type,schema_name,table_name,projection_name,((total_size_in_bytes)/1024/1024)::int MB
---operation,plan_type,count(*),max(timestampdiff('second',time,sysdate)) as b4_sec container_count,
---,case when count (distinct projection_name) > 1 then count (distinct projection_name)::varchar else max(projection_name) end as proj_name,   max(projection_name) as max_proj,sum(container_count) as sum_ros,(sum(total_size_in_bytes)/1024)::int KB
-,transaction_id as trx,session_id
-FROM dc_tuple_mover_events a
-where transaction_id  not in (select  transaction_id from dc_tuple_mover_events where event in ('Complete','Abort') )
-and (node_name ilike :1 or user_name ilike :1 or schema_name ilike :1 or table_name ilike :1 )
-order by 1

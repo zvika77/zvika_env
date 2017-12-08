@@ -1,1 +1,0 @@
-awk "/digraph G/,/}/"   vis.txt

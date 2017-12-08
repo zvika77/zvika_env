@@ -1,1 +1,0 @@
-show_dc_sql_plan_for_trx.sql

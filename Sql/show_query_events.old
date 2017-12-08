@@ -1,5 +1,0 @@
-select to_char(event_timestamp,'dd/mm/yy hh24:mi')||'('||sysdate - event_timestamp||')' as run_before,event_type,a.transaction_id||'/'||a.statement_id as trx,
-a.user_name,event_description
-from query_events a
-where event_type != 'PARTITIONS_ELIMINATED'
-order by event_timestamp desc 

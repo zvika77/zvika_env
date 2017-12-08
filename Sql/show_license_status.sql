@@ -1,1 +1,0 @@
-select  GET_COMPLIANCE_STATUS();

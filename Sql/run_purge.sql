@@ -1,1 +1,0 @@
-SELECT PURGE_TABLE(:1); 

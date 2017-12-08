@@ -1,1 +1,0 @@
-show_host_resources.sql

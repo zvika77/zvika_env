@@ -1,0 +1,155 @@
+
+BEGIN BACKTRACE
+Vertica Backtrace at Mon Apr 14 06:58:12 2014
+-------------------------
+Vertica Analytic Database v6.1.3-0 $BrandId$
+vertica(v6.1.3-0) built by release@build2.verticacorp.com from releases/VER_6_1_RELEASE_BUILD_3_0_20130926@122220 on 'Fri Sep 27  0:03:12 America/New_York 2013' $BuildId$
+00400000-041f8000 r-xp 00000000 ca:01 14549                              /opt/vertica/bin/vertica
+043f8000-0459d000 rw-p 03df8000 ca:01 14549                              /opt/vertica/bin/vertica
+0459d000-047b7000 rw-p 00000000 00:00 0 
+06032000-06449000 rw-p 00000000 00:00 0                                  [heap]
+3885800000-3885820000 r-xp 00000000 ca:01 3762                           /lib64/ld-2.12.so
+3885a1f000-3885a20000 r--p 0001f000 ca:01 3762                           /lib64/ld-2.12.so
+3885a20000-3885a21000 rw-p 00020000 ca:01 3762                           /lib64/ld-2.12.so
+3885a21000-3885a22000 rw-p 00000000 00:00 0 
+3885c00000-3885c02000 r-xp 00000000 ca:01 3870                           /lib64/libdl-2.12.so
+3885c02000-3885e02000 ---p 00002000 ca:01 3870                           /lib64/libdl-2.12.so
+3885e02000-3885e03000 r--p 00002000 ca:01 3870                           /lib64/libdl-2.12.so
+3885e03000-3885e04000 rw-p 00003000 ca:01 3870                           /lib64/libdl-2.12.so
+3886000000-388618b000 r-xp 00000000 ca:01 3763                           /lib64/libc-2.12.so
+388618b000-388638a000 ---p 0018b000 ca:01 3763                           /lib64/libc-2.12.so
+388638a000-388638e000 r--p 0018a000 ca:01 3763                           /lib64/libc-2.12.so
+388638e000-388638f000 rw-p 0018e000 ca:01 3763                           /lib64/libc-2.12.so
+388638f000-3886394000 rw-p 00000000 00:00 0 
+3886400000-3886417000 r-xp 00000000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886417000-3886617000 ---p 00017000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886617000-3886618000 r--p 00017000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886618000-3886619000 rw-p 00018000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886619000-388661d000 rw-p 00000000 00:00 0 
+3886800000-3886807000 r-xp 00000000 ca:01 5227                           /lib64/librt-2.12.so
+3886807000-3886a06000 ---p 00007000 ca:01 5227                           /lib64/librt-2.12.so
+3886a06000-3886a07000 r--p 00006000 ca:01 5227                           /lib64/librt-2.12.so
+3886a07000-3886a08000 rw-p 00007000 ca:01 5227                           /lib64/librt-2.12.so
+3889400000-3889416000 r-xp 00000000 ca:01 3767                           /lib64/libgcc_s-4.4.7-20120601.so.1
+3889416000-3889615000 ---p 00016000 ca:01 3767                           /lib64/libgcc_s-4.4.7-20120601.so.1
+3889615000-3889616000 rw-p 00015000 ca:01 3767                           /lib64/libgcc_s-4.4.7-20120601.so.1
+3889800000-388981d000 r-xp 00000000 ca:01 897                            /lib64/libtinfo.so.5.7
+388981d000-3889a1d000 ---p 0001d000 ca:01 897                            /lib64/libtinfo.so.5.7
+3889a1d000-3889a21000 rw-p 0001d000 ca:01 897                            /lib64/libtinfo.so.5.7
+388bc00000-388bc22000 r-xp 00000000 ca:01 18012                          /lib64/libncurses.so.5.7
+388bc22000-388be21000 ---p 00022000 ca:01 18012                          /lib64/libncurses.so.5.7
+388be21000-388be22000 rw-p 00021000 ca:01 18012                          /lib64/libncurses.so.5.7
+7fdd7dac1000-7fdd83952000 r--p 00000000 ca:01 272989                     /usr/lib/locale/locale-archive
+7fdd83952000-7fdd84897000 r--s 00000000 ca:01 155806                     /opt/vertica/share/icu/icudt42l.dat
+7fdd84897000-7fdd848a3000 r-xp 00000000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd848a3000-7fdd84aa3000 ---p 0000c000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd84aa3000-7fdd84aa4000 r--p 0000c000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd84aa4000-7fdd84aa5000 rw-p 0000d000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd84aaa000-7fdd84aad000 rw-p 00000000 00:00 0 
+7fdd84ab1000-7fdd84cc5000 rw-p 00000000 00:00 0 
+7fdd84cc5000-7fdd94e25000 rw-p 00000000 00:00 0 
+7fdd94e25000-7fdd9502e000 rw-p 00000000 00:00 0 
+7fdd9502e000-7fdd95037000 rw-p 00000000 00:00 0 
+7fff79df6000-7fff79e0c000 rw-p 00000000 00:00 0                          [stack]
+7fff79f38000-7fff79f39000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+Backtrace Requested
+/opt/vertica/bin/vertica(_ZN6Basics9Backtrace11DoBacktraceEiiPvS1_+0x8cc)[0x2ab667c]
+/opt/vertica/bin/vertica(_ZN6Basics20GlobalSignalHandlers20logBacktraceFromHereEb+0xa6)[0x2b3198a]
+/opt/vertica/bin/vertica(errthrow+0x5c)[0x2e5e026]
+/opt/vertica/bin/vertica[0x2c087e0]
+/opt/vertica/bin/vertica[0x1ec63eb]
+/opt/vertica/bin/vertica(_ZN2EE11SortManager8teardownEv+0x39c)[0x201fadc]
+/opt/vertica/bin/vertica(_ZN2EE10DataTarget21deinitializeExecutionEv+0x27d)[0x205ab33]
+/opt/vertica/bin/vertica(_ZN2EE2EED1Ev+0x1cc)[0x1fd6826]
+/opt/vertica/bin/vertica(_ZN4Dist4Dist12Exec_cleanUpEbb+0x1f1)[0x164e9e7]
+/opt/vertica/bin/vertica(_ZN4Dist18AbandonPlanMessage10invokeVoidEv+0x32)[0x1883a92]
+/opt/vertica/bin/vertica(_ZN4Dist11DistMessage6invokeEv+0x14)[0x175fe44]
+/opt/vertica/bin/vertica(_ZN4Dist9DistCalls27dispatchIncomingCallMessageERNS_14CallWireFormatERN6Basics10ByteBufferEPb+0x548)[0x16dd7ae]
+/opt/vertica/bin/vertica(_ZN4Dist9DistCalls8sendCallEPNS_11DistMessageESt6vectorIySaIyEESs+0x7f91)[0x16f5fa1]
+/opt/vertica/bin/vertica(_ZN4Dist11DistMessage4sendESt6vectorIySaIyEESs+0xb1)[0x1700e69]
+/opt/vertica/bin/vertica(_ZN4Dist9DistCalls15sendAbandonPlanESt6vectorIySaIyEEb+0x11b)[0x170f989]
+/opt/vertica/bin/vertica(_ZN4Dist4Dist16Init_cleanUpPlanEbbP16logged_exception+0xd9)[0x1651b0f]
+/opt/vertica/bin/vertica(_ZN4Dist4Dist16Init_executePlanEv+0x119)[0x165b66f]
+/opt/vertica/bin/vertica(_Z12process_planPN3OPT4PlanEP11ExplainPlan+0xde)[0x105c4a8]
+/opt/vertica/bin/vertica(_Z17recoverProjectionyP16VAlterProjection+0x364)[0x108d6ae]
+/opt/vertica/bin/vertica(_ZN8Recovery7CatchUp11runOneQueryERKNS0_7ProjRQMENS0_9QueryTypeEb+0x4a0)[0x2459b76]
+/opt/vertica/bin/vertica(_ZN8Recovery15RecoveryRequest3runEv+0xed)[0x246b1fd]
+/opt/vertica/bin/vertica(_ZN4Util11ActiveQueue7processEv+0x76)[0x2c99aa8]
+/opt/vertica/bin/vertica(_ZN4Util18processActiveQueueEPNS_11ActiveQueueE+0x56)[0x2c99f14]
+/opt/vertica/bin/vertica(_ZNK5boost9function0IvEclEv+0x1bb)[0x159b6bb]
+/opt/vertica/bin/vertica(_ZN7Session13ThreadManager12launchThreadERKN5boost9function0IvEE+0x57)[0x15989b5]
+/opt/vertica/bin/vertica(thread_proxy+0x80)[0x3469c70]
+/lib64/libpthread.so.0[0x38864079d1]
+/lib64/libc.so.6(clone+0x6d)[0x38860e8b6d]
+END BACKTRACE
+NO THREAD CONTEXT
+
+BEGIN BACKTRACE
+Vertica Backtrace at Mon Apr 14 06:58:16 2014
+-------------------------
+Vertica Analytic Database v6.1.3-0 $BrandId$
+vertica(v6.1.3-0) built by release@build2.verticacorp.com from releases/VER_6_1_RELEASE_BUILD_3_0_20130926@122220 on 'Fri Sep 27  0:03:12 America/New_York 2013' $BuildId$
+00400000-041f8000 r-xp 00000000 ca:01 14549                              /opt/vertica/bin/vertica
+043f8000-0459d000 rw-p 03df8000 ca:01 14549                              /opt/vertica/bin/vertica
+0459d000-047b7000 rw-p 00000000 00:00 0 
+06032000-06449000 rw-p 00000000 00:00 0                                  [heap]
+3885800000-3885820000 r-xp 00000000 ca:01 3762                           /lib64/ld-2.12.so
+3885a1f000-3885a20000 r--p 0001f000 ca:01 3762                           /lib64/ld-2.12.so
+3885a20000-3885a21000 rw-p 00020000 ca:01 3762                           /lib64/ld-2.12.so
+3885a21000-3885a22000 rw-p 00000000 00:00 0 
+3885c00000-3885c02000 r-xp 00000000 ca:01 3870                           /lib64/libdl-2.12.so
+3885c02000-3885e02000 ---p 00002000 ca:01 3870                           /lib64/libdl-2.12.so
+3885e02000-3885e03000 r--p 00002000 ca:01 3870                           /lib64/libdl-2.12.so
+3885e03000-3885e04000 rw-p 00003000 ca:01 3870                           /lib64/libdl-2.12.so
+3886000000-388618b000 r-xp 00000000 ca:01 3763                           /lib64/libc-2.12.so
+388618b000-388638a000 ---p 0018b000 ca:01 3763                           /lib64/libc-2.12.so
+388638a000-388638e000 r--p 0018a000 ca:01 3763                           /lib64/libc-2.12.so
+388638e000-388638f000 rw-p 0018e000 ca:01 3763                           /lib64/libc-2.12.so
+388638f000-3886394000 rw-p 00000000 00:00 0 
+3886400000-3886417000 r-xp 00000000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886417000-3886617000 ---p 00017000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886617000-3886618000 r--p 00017000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886618000-3886619000 rw-p 00018000 ca:01 3768                           /lib64/libpthread-2.12.so
+3886619000-388661d000 rw-p 00000000 00:00 0 
+3886800000-3886807000 r-xp 00000000 ca:01 5227                           /lib64/librt-2.12.so
+3886807000-3886a06000 ---p 00007000 ca:01 5227                           /lib64/librt-2.12.so
+3886a06000-3886a07000 r--p 00006000 ca:01 5227                           /lib64/librt-2.12.so
+3886a07000-3886a08000 rw-p 00007000 ca:01 5227                           /lib64/librt-2.12.so
+3889400000-3889416000 r-xp 00000000 ca:01 3767                           /lib64/libgcc_s-4.4.7-20120601.so.1
+3889416000-3889615000 ---p 00016000 ca:01 3767                           /lib64/libgcc_s-4.4.7-20120601.so.1
+3889615000-3889616000 rw-p 00015000 ca:01 3767                           /lib64/libgcc_s-4.4.7-20120601.so.1
+3889800000-388981d000 r-xp 00000000 ca:01 897                            /lib64/libtinfo.so.5.7
+388981d000-3889a1d000 ---p 0001d000 ca:01 897                            /lib64/libtinfo.so.5.7
+3889a1d000-3889a21000 rw-p 0001d000 ca:01 897                            /lib64/libtinfo.so.5.7
+388bc00000-388bc22000 r-xp 00000000 ca:01 18012                          /lib64/libncurses.so.5.7
+388bc22000-388be21000 ---p 00022000 ca:01 18012                          /lib64/libncurses.so.5.7
+388be21000-388be22000 rw-p 00021000 ca:01 18012                          /lib64/libncurses.so.5.7
+7fdd7dac1000-7fdd83952000 r--p 00000000 ca:01 272989                     /usr/lib/locale/locale-archive
+7fdd83952000-7fdd84897000 r--s 00000000 ca:01 155806                     /opt/vertica/share/icu/icudt42l.dat
+7fdd84897000-7fdd848a3000 r-xp 00000000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd848a3000-7fdd84aa3000 ---p 0000c000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd84aa3000-7fdd84aa4000 r--p 0000c000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd84aa4000-7fdd84aa5000 rw-p 0000d000 ca:01 14242                      /lib64/libnss_files-2.12.so
+7fdd84aaa000-7fdd84aad000 rw-p 00000000 00:00 0 
+7fdd84ab1000-7fdd84cc5000 rw-p 00000000 00:00 0 
+7fdd84cc5000-7fdd94e25000 rw-p 00000000 00:00 0 
+7fdd94e25000-7fdd9502e000 rw-p 00000000 00:00 0 
+7fdd9502e000-7fdd95037000 rw-p 00000000 00:00 0 
+7fff79df6000-7fff79e0c000 rw-p 00000000 00:00 0                          [stack]
+7fff79f38000-7fff79f39000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+Backtrace Requested
+/opt/vertica/bin/vertica(_ZN6Basics9Backtrace11DoBacktraceEiiPvS1_+0x8cc)[0x2ab667c]
+/opt/vertica/bin/vertica(_ZN6Basics20GlobalSignalHandlers20logBacktraceFromHereEb+0xa6)[0x2b3198a]
+/opt/vertica/bin/vertica(errthrow+0x5c)[0x2e5e026]
+/opt/vertica/bin/vertica[0x2c087e0]
+/opt/vertica/bin/vertica[0x1ec63eb]
+/opt/vertica/bin/vertica(_ZN2EE11SortManager8teardownEv+0x39c)[0x201fadc]
+/opt/vertica/bin/vertica(_ZN2EE10DataTarget21deinitializeExecutionEv+0x27d)[0x205ab33]
+/opt/vertica/bin/vertica(_ZN2EE2EED1Ev+0x1cc)[0x1fd6826]
+/opt/vertica/bin/vertica(_ZN4Dist4Dist12Exec_cleanUpEbb+0x1f1)[0x164e9e7]
+/opt/vertica/bin/vertica(_ZN4Dist18AbandonPlanMessage10invokeVoidEv+0x32)[0x1883a92]
+/opt/vertica/bin/vertica(_ZN4Dist11DistMessage6invokeEv+0x14)[0x175fe44]

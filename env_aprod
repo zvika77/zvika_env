@@ -1,0 +1,12 @@
+export V_USER=$m_user_prod
+export V_PASS=$m_pass_prod
+export V_HOST=oltp-dev.cluster-ctynt5ygkolw.us-east-1.rds.amazonaws.com
+export V_DB=mysql
+export ZHOME_BCK=${ZHOME}
+export ZHOME=${ZHOME}/Mysql
+export SQL=${ZHOME}/Sql
+source /home/zvika_env/myaliases
+export ZHOME=${ZHOME_BCK}
+
+#set prompt="%n@%{\033[1;31m%}${V_DB}%{\033[0m%} %/ > "
+export PS1="\u@\[\e[0;31m[\]${V_HOST}]\[\e[m\]\W > "

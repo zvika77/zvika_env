@@ -1,0 +1,1 @@
+select audit(:1)

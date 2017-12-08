@@ -1,0 +1,12 @@
+export V_USER=$v_user_prod
+export PGPASSWORD=$v_pass_prod
+export V_DB=localhost
+export PORT=6666
+export DATABASE=dev
+export ZHOME_BCK=${ZHOME}
+export ZHOME=${ZHOME}/Redshift
+export SQL=${ZHOME}/Sql
+source /home/zvika_env/myaliases
+export ZHOME=${ZHOME_BCK}
+#set prompt="%n@%{\033[1;31m%}${V_DB}%{\033[0m%} %/ > "
+export PS1="\u@\[\e[0;31m[\]RSODS]\[\e[m\]\W > "

@@ -1,3 +1,38 @@
 [user]
-	email = zvika.gutkin@convertro.com
-	name = zvika
+        name = zvika
+        email = zvika@ziprecruiter.com
+[pull]
+        rebase = true
+[merge]
+        ff = only
+
+[alias]
+	unstage = reset HEAD --
+	co = checkout
+	br = branch
+	ci = commit
+	st = status -sb
+	last = log -1 --pretty=onelinecustom HEAD
+	df = diff --no-ext-diff
+	staged = diff --no-ext-diff --cached
+	glog = log --graph --pretty=onelinecustom
+	update = !git remote update -p && git merge --ff-only --stat @{u}
+	ff = merge --ff-only
+	preclean = clean -d -n
+	amend = commit -p --amend
+	in = "!git remote update -p; git log --pretty=onelinecustom ..@{u}"
+	out = !git log --pretty=onelinecustom @{u}..
+	new = !git log --pretty=onelinecustom $1@{1}..$1@{0}
+	rollback = reset --soft HEAD^
+	lg = log --pretty=onelinecustom
+	sstash = stash show -p --no-ext-diff
+[pretty]
+	onelinecustom = tformat:%C(magenta)%h%Creset%C(yellow)%d%Creset %s %C(green)(%cr)%Creset %C(cyan)<%an>%Creset
+[transfer]
+	fsckobjects = true
+[branch]
+	autosetuprebase = always
+	autosetupmerge = always
+[log]
+	date = iso8601
+

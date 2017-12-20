@@ -57,6 +57,12 @@ RUN source /root/.bashrc
 RUN export ZHOME=/home/zvika_env && \
 echo "export ZHOME=/home/zvika_env;export RHOME=${ZHOME}/Redshift;export MHOME=${ZHOME}/Mysql;export VHOME=${ZHOME}/Vertica;export SQL=${ZHOME}/Sql ;export PATH=~/.local/bin:$HBASE_HOME/bin:$HADOOP_HOME/sbin:$HADOOP_HOME/bin:/opt/vertica/bin/:$PATH" >> /root/.bashrc && \
     echo "source ${ZHOME}/myaliases"  >> /root/.bashrc
+# custome history
+RUN echo "HISTTIMEFORMAT='[$(tput bold)%F %T$(tput sgr0)]:  '" >> /root/.bashrc && \
+    echo "HISTFILESIZE=10000" >> /root/.bashrc && \
+    echo "HISTSIZE=10000" >> /root/.bashrc && \
+    echo "HISTCONTROL=ignoredups" >> /root/.bashrc && \
+    echo "HISTIGNORE=?:??" >> /root/.bashrc 
 # create tunnels (need ssh config file )
 RUN    echo "autossh -M 0 -f -T -N rsprod" >> /root/.bashrc &&  \
        echo "autossh -M 0 -f -T -N rsods" >> /root/.bashrc

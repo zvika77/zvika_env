@@ -1,4 +1,17 @@
-select sws.service_class,swsc.name,num_queued_queries,num_executing_queries||'/'||swsc.num_query_tasks as num_queries,swsc.query_working_mem as mem_MB
-,(swsc.max_execution_time/1000)::int as max_exec_sec
-from STV_WLM_SERVICE_CLASS_STATE sws join stv_wlm_service_class_config swsc on (sws.service_class = swsc.service_class)
-where sws.service_class > 4 order by 1;
+SELECT config.service_class AS queue ,
+       TRIM (case when class.condition = '' then config.name else class.condition end ) AS description ,
+            state.num_executing_queries||'/'||config.num_query_tasks AS slots ,
+            state.num_queued_queries queued ,
+            config.query_working_mem AS mem ,
+            (config.max_execution_time/1000)::int AS max_time_sec ,
+            config.user_group_wild_card AS "user_*" ,
+            config.query_group_wild_card AS "query_*" ,
+            state.num_executed_queries executed
+FROM STV_WLM_CLASSIFICATION_CONFIG CLASS,
+                                   STV_WLM_SERVICE_CLASS_CONFIG config,
+                                   STV_WLM_SERVICE_CLASS_STATE STATE
+WHERE CLASS.action_service_class = config.service_class
+  AND CLASS.action_service_class = STATE.service_class
+  AND config.service_class > 4
+ORDER BY config.service_class;
+

@@ -27,6 +27,7 @@ select * from (select schemaname
     LEFT OUTER JOIN pg_attrdef AS adef ON a.attrelid = adef.adrelid AND a.attnum = adef.adnum
     WHERE C.relkind = 'r'
     AND a.attnum > 0 order by a.attnum ) a ) cols
-    where cols.schemaname = :1 and cols.tablename = :2
+    where cols.schemaname = :1 and cols.tablename ilike :2
+order by 1,2
     ;
 

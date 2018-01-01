@@ -22,8 +22,8 @@ FROM
          CROSS JOIN (SELECT * FROM pg_user) AS usrs
     ) all_objs
 WHERE (all_objs.sel = true or all_objs.ins = true or all_objs.upd = true or all_objs.del = true or all_objs.ref = true)
-and schemaname ilike :1 and objectname ilike :2
-and usename ilike :3;
+and trim(schemaname) ilike :1 and trim(objectname) ilike :2
+and trim(usename) ilike :3;
 
 SELECT
          SUBSTRING(

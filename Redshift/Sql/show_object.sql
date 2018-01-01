@@ -1,4 +1,4 @@
-select relname as obj_name,relnamespace,pui.usename,
+select pna.nspname,relname as obj_name,relnamespace,pui.usename,
   case   when pcl.relkind = 'r'  then 'table '
         when pcl.relkind = 'i' then 'index'
         when pcl.relkind = 'S' then 'sequence'
@@ -10,5 +10,6 @@ select relname as obj_name,relnamespace,pui.usename,
     else null end as type
   ,relacl
 from pg_class pcl join pg_user_info pui on (pcl.relowner = pui.usesysid)
-where relname ilike :1
+join pg_namespace pna on (pcl.relnamespace = pna.oid)
+where pna.nspname ilike :1 and relname ilike :2
 

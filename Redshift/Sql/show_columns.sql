@@ -1,12 +1,12 @@
 select * from (select schemaname
-    , tablename
+    , tablename,seq
     ,col_name ,col_datatype ,col_nullable , col_default ,col_encoding
     FROM
     (
     SELECT
     n.nspname AS schemaname
     , C.relname AS tablename
-    , 100000000 + a.attnum AS seq
+    , a.attnum AS seq
     , CASE WHEN a.attnum > 1 THEN ',' ELSE '' END AS col_delim
     , a.attname  AS col_name
     , CASE WHEN STRPOS(UPPER(format_type(a.atttypid, a.atttypmod)), 'CHARACTER VARYING') > 0
@@ -27,7 +27,7 @@ select * from (select schemaname
     LEFT OUTER JOIN pg_attrdef AS adef ON a.attrelid = adef.adrelid AND a.attnum = adef.adnum
     WHERE C.relkind = 'r'
     AND a.attnum > 0 order by a.attnum ) a ) cols
-    where cols.schemaname = :1 and cols.tablename ilike :2
-order by 1,2
+    where cols.schemaname = :1 and cols.tablename = :2
+    order by 1,2,3
     ;
 

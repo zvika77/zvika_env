@@ -2,6 +2,6 @@ select max(event_time) as last_event,trim(pui.usename) as user_name,sae.query,su
 ,max(event) as sample_event --sae.*,squ.*
 from STL_ALERT_EVENT_LOG sae   join pg_user_info pui on (sae.userid = pui.usesysid)
 left join stl_query squ on (sae.query = squ.query)
-where usename ilike :1
+where trim(usename) ilike :1
  group by user_name,sae.query,querytxt
 order by 1 desc

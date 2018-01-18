@@ -10,5 +10,5 @@ LEFT JOIN pg_attribute attr ON
 WHERE  trim(sti.schema) = :1
 and trim(perm.name) ilike :2
 GROUP BY schema,name
-order by 1,2
+order by 1,3
 

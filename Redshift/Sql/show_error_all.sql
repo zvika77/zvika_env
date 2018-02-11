@@ -20,7 +20,7 @@ from STL_WLM_ERROR swe  join pg_user_info pui on (swe.userid = pui.usesysid)
  left join stl_query squ on (swe.pid = squ.pid)
 where trim(usename) ilike :1
 union all
-select 'load_error' as "type",starttime as recordtime,trim(usename) as user_name as usename ,query::varchar||'|'||substring(filename,22,25)||'|'||line_number
+select 'load_error' as "type",starttime as recordtime,trim(usename) as user_name ,query::varchar||'|'||substring(filename,22,25)||'|'||line_number
 ||'|'||substring(colname,0,12)||'|'|| type||'|'||position||'|'||substring(raw_line,0,30)||'|'||
 substring(raw_field_value,0,15) ||'|'||substring(err_reason,0,45) as info
 from stl_load_errors sle join pg_user_info pui on (sle.userid = pui.usesysid)

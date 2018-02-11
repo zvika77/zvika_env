@@ -19,4 +19,4 @@ echo =======================
 
 
 
-psql -h $V_DB  -U $V_USER -d $DATABASE -p $PORT -a  --echo-all  -v 1="'$param1'" -v 2="'$param2'" -v 3="'$param3'" -v 4="'$param4'"  -f $script
+psql -h $V_DB  -U $V_USER -d $DATABASE -p $PORT -a -b -e -v 1="'$param1'" -v 2="'$param2'" -v 3="'$param3'" -v 4="'$param4'"  -f $script

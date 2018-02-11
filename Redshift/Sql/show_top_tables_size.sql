@@ -1,3 +1,6 @@
+select *
+,(ratio_to_report(size_mb) over () *100)::numeric(10,2) as rat
+from (
 SELECT trim(schema) as schema,
 trim(name) as tname,
 COUNT(*) AS "size_mb"
@@ -8,7 +11,7 @@ LEFT JOIN pg_attribute attr ON
   attr.attrelid = bl.tbl
   AND attr.attnum-1 = bl.col
 WHERE  trim(sti.schema) ilike :1
-and trim(perm.name) ilike :2
 GROUP BY schema,name
-order by 1,3
+order by count(*) desc ) a
+order by size_mb desc 
 

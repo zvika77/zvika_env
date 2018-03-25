@@ -65,4 +65,5 @@ RUN echo "HISTTIMEFORMAT='[$(tput bold)%F %T$(tput sgr0)]:  '" >> /root/.bashrc 
     echo "HISTIGNORE=?:??" >> /root/.bashrc 
 # create tunnels (need ssh config file )
 RUN    echo "autossh -M 0 -f -T -N rsprod" >> /root/.bashrc &&  \
-       echo "autossh -M 0 -f -T -N rsods" >> /root/.bashrc
+       echo "autossh -M 0 -f -T -N rsods" >> /root/.bashrc. && \
+       echo "autossh -M 0 -f -T -N rsstg" >> /root/.bashrc

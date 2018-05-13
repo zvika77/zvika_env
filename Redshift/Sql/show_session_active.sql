@@ -4,4 +4,5 @@ select trim(pui.usename) as user_name,sti.query,sti.slice,swq.slot_count as slot
 from stv_inflight sti join STV_WLM_QUERY_STATE swq
  on (sti.query = swq.query)
  left join pg_user_info pui on (sti.userid = pui.usesysid)
+where sti.pid != pg_backend_pid()
 order by dur_min desc
